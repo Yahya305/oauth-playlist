@@ -10,9 +10,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 // connect to mongodb
-mongoose.connect(keys.mongodb.dbURI, () => {
-    console.log('connected to mongodb');
-});
+mongoose.connect(keys.mongodb.dbURI).then(()=>console.log("connected to the DB"));
 
 // set up routes
 app.use('/auth', authRoutes);
